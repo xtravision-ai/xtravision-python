@@ -5,7 +5,7 @@ The official python library for the XtraVision API.
 1. Clone repo and install dependencies using below commands  
     ```sh
     git clone https://github.com/xtravision-ai/xtravision-python.git
-    pip install -r requirement.txt
+    pip install -r requirements.txt
     ````
 
 2. Update credentials in demo.py file
