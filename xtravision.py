@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 import requests
 from jose import jwt
 
+#  GraphQL Schema
 REGISTER_USER_MUTATION = """
 mutation registerUser(
   $firstName: String, 
@@ -90,11 +91,9 @@ query getAuthorizedRequestData($reqData: AuthRequest) {
 """
 
 
-# https://saasstagingapi.xtravision.ai/api/v1/
-# http://localhost:4000/api/v1
-SERVER_URL = 'https://saasapi.xtravision.ai/api/v1/'
-url = "{}/graphql".format(SERVER_URL)
-
+# https://saasstagingapi.xtravision.ai/api/v1/graphql
+# http://localhost:4000/api/v1/graphql
+url = 'https://saasapi.xtravision.ai/api/v1/graphql'
 
 class XtraVision:
     def __init__(self, credentials, params={"expiresIn": 2}):
@@ -162,7 +161,7 @@ class XtraVision:
         """
         Make graphql query/mutation
         """
-        print("callGraphqlQuery:: Request QueryString= %s, Request Data= %s", " ".join(query.split()), variables)
+        # print("callGraphqlQuery:: Request QueryString= %s, Request Data= %s", " ".join(query.split()), variables)
 
         response = None
         if variables:
