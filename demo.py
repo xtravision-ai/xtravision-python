@@ -5,9 +5,10 @@ from xtravision import XtraVision
 import traceback
 
 credentials = {
-    "orgId": "Add your data",
-    "appSecret": "Add your data",
-    "appId": "Add your data"
+    "orgId": "__ORG-ID__",
+    "appSecret": "__App-ID__",
+    "appId": "__App-Secret-Key__",
+    "userId": None
 }
 
 async def register_user():
