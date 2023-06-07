@@ -12,10 +12,9 @@ The official python library for the XtraVision API.
 
     ```python
     credentials = {
-    "orgId": "__ORG-ID__",
-    "appSecret": "__App-ID__",
-    "appId": "__App-Secret-Key__",
-    "userId": None
+    "orgId": "__ORG_ID__",
+    "appId": "__APP_ID__",
+    "appSecret": "__APP_SECRET__",
     }
     ```
     Kindly update your testing user details also in same file. (firstName, lastName and email).

@@ -5,10 +5,9 @@ from xtravision import XtraVision
 import traceback
 
 credentials = {
-    "orgId": "__ORG-ID__",
-    "appSecret": "__App-ID__",
-    "appId": "__App-Secret-Key__",
-    "userId": None
+    "orgId": "__ORG_ID__",
+    "appId": "__APP_ID__",
+    "appSecret": "__APP_SECRET__",
 }
 
 async def register_user():
@@ -65,6 +64,9 @@ async def start():
     try:
         user_details = await register_user()
         print("User details:", user_details)
+
+        if user_details is None:
+              raise Exception("User registration failed! Check above error")
 
         await do_some_operation(user_details["id"])
 
