@@ -7,7 +7,7 @@ import traceback
 credentials = {
     "orgId": "__ORG_ID__",
     "appId": "__APP_ID__",
-    "appSecret": "__APP_SECRET__",
+    "appSecret": "__APP_SECRET_KEY__",
 }
 
 async def register_user():
