@@ -2,12 +2,93 @@ from datetime import datetime, timedelta
 import requests
 from jose import jwt
 
-from graphql_queries.common import (
-    GET_USER_ASSESSMENT_RESULTS,
-    USER_SESSION_CREATE_MUTATION,
-    REGISTER_USER_MUTATION,
-    AUTHORIZED_REQUEST_DATA_QUERY,
-)
+REGISTER_USER_MUTATION = """
+mutation registerUser(
+  $firstName: String, 
+  $lastName: String,  
+  $profileData: JSON, 
+  $timezone: String, 
+  $email: String!
+) {
+  registerUser(
+    firstName: $firstName, 
+    lastName: $lastName, 
+    email: $email, 
+    profileData: $profileData, 
+    timezone: $timezone
+  ) {
+    id
+    firstName
+    lastName
+    email
+    profileData
+    timezone
+  }
+}
+"""
+
+USER_SESSION_CREATE_MUTATION = """
+mutation createUserSession {
+  createUserSession {
+    id
+    userId
+    createdAt
+  }
+}
+"""
+
+REGISTER_TRAINER_MUTATION = """
+mutation registerTrainer($firstName: String, $lastName: String, $email: String!) {
+  registerTrainer(firstName: $firstName, lastName: $lastName, email: $email) {
+    id
+    firstName
+    lastName
+  }
+}
+"""
+
+GET_USER_ASSESSMENT_RESULTS = """
+query getUserAssessmentResults($limit: Int, $offset: Int, $userAssessmentFilter: userAssessmentFilter!) {
+  getUserAssessmentResults(limit: $limit, offset: $offset, userAssessmentFilter: $userAssessmentFilter) {
+    total
+    userAssessmentResult {
+      assessmentName
+      id
+      results
+      savedDate
+      stats {
+        additionalStats
+        tsStats
+      }
+    }
+  }
+}
+"""
+
+AUTHORIZED_REQUEST_DATA_QUERY = """
+query getAuthorizedRequestData($reqData: AuthRequest) {
+  getAuthorizedRequestData(reqData: $reqData) {
+    orgAppUser{
+      id
+      email
+      firstName
+      lastName
+      createdAt
+    }
+    orgApp{
+      id
+      name
+      createdAt
+    }
+    userSession{
+      id
+      userId
+      createdAt
+    }
+  }
+}
+"""
+
 
 # https://saasstagingapi.xtravision.ai/api/v1/graphql
 # http://localhost:4000/api/v1
@@ -16,7 +97,7 @@ url = "{}/graphql".format(SERVER_URL)
 
 
 class XtraVision:
-    def __init__(self, credentials, params=None):
+    def __init__(self, credentials, params={"expiresIn": 2}):
         self.userId = credentials['userId'] if "userId" in credentials else None
         self.appId = credentials['appId']
         self.orgId = credentials['orgId']
@@ -28,7 +109,7 @@ class XtraVision:
             },
             credentials['appSecret'],
             algorithm='HS256',
-            headers={'exp': str(datetime.utcnow() + timedelta(hours=24))},
+            headers={'exp': str(datetime.utcnow() + timedelta(hours=params["expiresIn"]))},
         )
 
     def get_auth_token(self):

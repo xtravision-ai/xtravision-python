@@ -29,7 +29,7 @@ async def register_user():
         error_handler(e)
 
 async def do_some_operation(user_id):
-    xtra_obj = XtraVision({**credentials, "userId": user_id}, {"expiresIn": "2h"})
+    xtra_obj = XtraVision({**credentials, "userId": user_id}, {"expiresIn": 2})
     auth_token = xtra_obj.get_auth_token()
     print(f"Auth token for user ID {user_id}: {auth_token}")
 
