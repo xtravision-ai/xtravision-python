@@ -39,10 +39,9 @@ The official python library for the XtraVision API.
 
     ```python
     credentials = {
-    "orgId": "__ORG-ID__",
-    "appSecret": "__APP-SECRET-KEY__",
-    "appId": "__APP-ID__",
-    "userId": None # userId should be None while registering new user
+    "orgId": "__ORG_ID__",
+    "appId": "__APP_ID__",
+    "appSecret": "__APP_SECRET_KEY__",
     }
     xtra_obj = XtraVision(credentials)
     user_obj = {
@@ -72,10 +71,10 @@ The official python library for the XtraVision API.
 
     ```python
     credentials = {
-    "orgId": "__ORG-ID__",
-    "appSecret": "__APP-SECRET-KEY__",
-    "appId": "__APP-ID__",
-    "userId": "__USER-ID__" # Use userId obtained while registering user
+    "orgId": "__ORG_ID__",
+    "appId": "__APP_ID__",
+    "appSecret": "__APP_SECRET_KEY__",
+    "userId": "__USER_ID__" # Use userId obtained while registering user
     }
     xtra_obj = XtraVision(credentials, {"expiresIn": 2})
     ```
