@@ -6,8 +6,8 @@ import traceback
 
 credentials = {
     "orgId": "__ORG-ID__",
-    "appSecret": "__App-ID__",
-    "appId": "__App-Secret-Key__",
+    "appSecret": "__APP-SECRET-KEY__",
+    "appId": "__APP-ID__",
     "userId": None
 }
 
