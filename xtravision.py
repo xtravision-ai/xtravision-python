@@ -90,9 +90,9 @@ query getAuthorizedRequestData($reqData: AuthRequest) {
 """
 
 
-# https://saasstagingapi.xtravision.ai/api/v1/graphql
+# https://saasstagingapi.xtravision.ai/api/v1/
 # http://localhost:4000/api/v1
-SERVER_URL = 'https://saasapi.xtravision.ai/api/v1/graphql'
+SERVER_URL = 'https://saasapi.xtravision.ai/api/v1/'
 url = "{}/graphql".format(SERVER_URL)
 
 
