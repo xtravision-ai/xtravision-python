@@ -30,7 +30,7 @@ The official python library for the XtraVision API.
  Auth token and other response data will be printed in console log. 
 
 ## How to Use xtravision.py to register user, get auth token etc,. 
-# A.Register User
+### A.Register User
 1. Import XtraVision class
 
     ```python
@@ -63,7 +63,7 @@ The official python library for the XtraVision API.
     user_details = await xtra_obj.register_user(user_obj)
     ```
 
-# B. Get Auth Token
+### B. Get Auth Token
 1. Import XtraVision class
 
     ```python
@@ -85,7 +85,7 @@ The official python library for the XtraVision API.
     ```python
     auth_token = xtra_obj.get_auth_token()
     ```
-# C. Similarly Session ID (xtra_obj.get_session_id) & User Assessment result (xtra_obj.get_user_assessment_results) can be obtained by referring demo.py 
+### C. Similarly Session ID (xtra_obj.get_session_id) & User Assessment result (xtra_obj.get_user_assessment_results) can be obtained by referring demo.py 
 
 
 ## SDK API: 
