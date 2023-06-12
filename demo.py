@@ -40,15 +40,18 @@ async def do_some_operation(user_id):
     limit = 5
     offset = 0
     is_required_stats = True
+    # Update your required session-id
+    session_id = "1d9ba929-9571-430b-9f4b-7a92d422a1c6" # example of session-id
 
     assessment_results = await xtra_obj.get_user_assessment_results(
         limit,
         offset,
         {
-            "startDate": current_month_first_day,
-            "endDate": str(current_date),
-            "isRequiredStats": is_required_stats
-        }
+            # "startDate": current_month_first_day,
+            # "endDate": str(current_date),
+            "isRequiredStats": is_required_stats, # Additional stats 
+            "sessionId":  session_id   # Any specific session data required
+         }
     )
 
     print("User assessment results:", assessment_results)
