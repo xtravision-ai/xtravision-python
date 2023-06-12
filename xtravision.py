@@ -57,6 +57,7 @@ query getUserAssessmentResults($limit: Int, $offset: Int, $userAssessmentFilter:
       id
       results
       savedDate
+      sessionId
       stats {
         additionalStats
         tsStats
@@ -91,8 +92,8 @@ query getAuthorizedRequestData($reqData: AuthRequest) {
 """
 
 
-# https://saasstagingapi.xtravision.ai/api/v1/graphql
-# http://localhost:4000/api/v1/graphql
+# url = 'https://saasstagingapi.xtravision.ai/api/v1/graphql'
+# url = 'http://localhost:4000/api/v1/graphql'
 url = 'https://saasapi.xtravision.ai/api/v1/graphql'
 
 class XtraVision:
