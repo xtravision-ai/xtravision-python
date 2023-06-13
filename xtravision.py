@@ -115,7 +115,7 @@ class XtraVision:
     def get_auth_token(self):
         return self.token
 
-    async def register_user(self, user_obj):
+    def register_user(self, user_obj):
         variables = {
             "email": user_obj['email']
         }
@@ -130,22 +130,22 @@ class XtraVision:
         
 
         # Make a GraphQL call to XTRA SaaS server and return the data
-        response = await self.callGraphqlQuery(REGISTER_USER_MUTATION, variables)
+        response = self.callGraphqlQuery(REGISTER_USER_MUTATION, variables)
         return response["data"]['registerUser']
 
-    async def get_session_id(self):
+    def get_session_id(self):
         variables = {}
 
         # Make a GraphQL call to XTRA SaaS server and return the data
-        response = await self.callGraphqlQuery(USER_SESSION_CREATE_MUTATION, variables)
+        response = self.callGraphqlQuery(USER_SESSION_CREATE_MUTATION, variables)
         return response["data"]['createUserSession']
 
-    async def get_authorized_data(self, auth_token, session_id, data):
+    def get_authorized_data(self, auth_token, session_id, data):
         req_data = {'authToken': auth_token, 'sessionId': session_id, 'data': data}
-        response = await self.callGraphqlQuery(AUTHORIZED_REQUEST_DATA_QUERY, {'reqData': req_data})
+        response = self.callGraphqlQuery(AUTHORIZED_REQUEST_DATA_QUERY, {'reqData': req_data})
         return response
 
-    async def get_user_assessment_results(self, limit, offset, user_assessment_filter):
+    def get_user_assessment_results(self, limit, offset, user_assessment_filter):
         variables = {}
         if user_assessment_filter:
             variables['userAssessmentFilter'] = user_assessment_filter
@@ -155,10 +155,10 @@ class XtraVision:
             variables['offset'] = offset
 
         # Make a GraphQL call to XTRA SaaS server
-        response = await self.callGraphqlQuery(GET_USER_ASSESSMENT_RESULTS, variables)
+        response = self.callGraphqlQuery(GET_USER_ASSESSMENT_RESULTS, variables)
         return response["data"]['getUserAssessmentResults']
     
-    async def callGraphqlQuery(self, query, variables=None, get_raw_response=False):
+    def callGraphqlQuery(self, query, variables=None, get_raw_response=False):
         """
         Make graphql query/mutation
         """

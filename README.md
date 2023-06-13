@@ -58,7 +58,7 @@ The official python library for the XtraVision API.
 3. Call register_user
 
     ```python
-    user_details = await xtra_obj.register_user(user_obj)
+    user_details = xtra_obj.register_user(user_obj)
     ```
 
 ### B. Get Auth Token
