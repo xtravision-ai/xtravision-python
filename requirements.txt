@@ -1,3 +1,6 @@
-pytz==2022.1
+# For Sending Request
 requests==2.28.1
-python-jose==3.3.0
+# For JWT Token
+python-jose==3.3.0 
+# For Timezone specific utility
+pytz==2022.1

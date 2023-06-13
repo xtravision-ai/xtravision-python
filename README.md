@@ -1,5 +1,5 @@
 # xtravision-python
-The official python library for the XtraVision API.
+Python script to communicate to the XtraVision API Server.
 
 ## For Demo Application:
 1. Clone repo and install dependencies using below commands  
@@ -35,7 +35,7 @@ The official python library for the XtraVision API.
     ```python
     from xtravision import XtraVision
     ```
-2. Intialize class with credentials
+2. Initialize class with credentials
 
     ```python
     credentials = {
@@ -58,7 +58,7 @@ The official python library for the XtraVision API.
 3. Call register_user
 
     ```python
-    user_details = await xtra_obj.register_user(user_obj)
+    user_details = xtra_obj.register_user(user_obj)
     ```
 
 ### B. Get Auth Token
@@ -83,11 +83,9 @@ The official python library for the XtraVision API.
     ```python
     auth_token = xtra_obj.get_auth_token()
     ```
+
 ### C. Similarly Session ID (xtra_obj.get_session_id) & User Assessment result (xtra_obj.get_user_assessment_results) can be obtained by referring demo.py 
 
 
-## SDK API: 
-
-- For API reference, kindly check [XtraVision GraphQL API Portal](https://xtravision-ai.github.io/)
-
-
+## Note:
+Kindly refer `demo.py` file for further code exploration.
